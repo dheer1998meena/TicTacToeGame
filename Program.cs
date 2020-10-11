@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace TicTacToeGame
 {
     class Program
     {
+       
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Tic Tac Toe Game");
@@ -19,8 +21,9 @@ namespace TicTacToeGame
             int userMove = tic.getUserMove(board);
             tic.makeMove(board, userMove, chooseLetter);
             tic.ShowBoard(board);
+            //Computer Move
+            int computerMove = tic.getComputerMove(board, computerLetter);
             Console.WriteLine("Check if Won: " + tic.isWinner(board, chooseLetter));
-
 
         }
     }

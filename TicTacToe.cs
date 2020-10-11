@@ -7,6 +7,9 @@ namespace TicTacToeGame
 {
     class TicTacToe
     {
+        public const int HEAD = 0;
+        public const int TAIL = 1;
+        public enum Player { USER, COMPUTER };
         // To create a new board
         public char[] CreateBoard()
         {
@@ -91,7 +94,7 @@ namespace TicTacToeGame
             }
         }
 
-        //UC7_Check Result After Every Move
+        // Check Result After Every Move
         public bool isWinner(char[] b, char ch)
         {
             return ((b[1] == ch && b[2] == ch && b[3] == ch) || //across the top horizontal
@@ -105,7 +108,34 @@ namespace TicTacToeGame
 
         }
 
-
+        // Computer move
+        public int getComputerMove(char [] board , char computerLetter)
+        {
+            int winningMove = getWinningMove(board , computerLetter);
+            if (winningMove != 0)
+                return winningMove;
+            return 0;
+        }
+        public int getWinningMove(char[] board ,char letter)
+        {
+            for (int index =1; index<board.Length; index++)
+            {
+                char[] copyOfBoard = geCopyOfBoard(board);
+                if (isSpaceFree(copyOfBoard, index))
+                {
+                    makeMove(copyOfBoard, index, letter);
+                    if (isWinner(copyOfBoard, letter))
+                        return index;
+                }
+            }
+            return 0;
+        }
+        public char [] geCopyOfBoard(char [] board)
+        {
+            char[] boardCopy = new char[10];
+            System.arrayCopy(board, srcPos: 0, boardCopy, destPos: 0, board.Length);
+            return boardCopy;
+        }
     }
 }
     
