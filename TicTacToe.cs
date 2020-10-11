@@ -8,10 +8,10 @@ namespace TicTacToeGame
     class TicTacToe
     {
         // To create a new board
-        public char [] CreateBoard()
+        public char[] CreateBoard()
         {
             char[] board = new char[10];
-            for (int i=0; i<board.Length; i++)
+            for (int i = 0; i < board.Length; i++)
             {
                 board[i] = ' ';
             }
@@ -27,7 +27,7 @@ namespace TicTacToeGame
         }
 
         //  To show Board 
-        public void ShowBoard(char [] board)
+        public void ShowBoard(char[] board)
         {
             Console.WriteLine("\n " + board[1] + " | " + board[2] + " | " + board[3]);
             Console.WriteLine("-----------");
@@ -53,10 +53,46 @@ namespace TicTacToeGame
             return board[index] == ' ';
         }
 
+        // Check for Free Space
         public void makeMove(char[] board, int index, char letter)
         {
             bool spaceFree = isSpaceFree(board, index);
             if (spaceFree) board[index] = letter;
         }
+
+        // Play Toss Using Coin
+        public void Toss()
+        {
+            string choice = null;
+            bool val = true;
+            while (val)
+            {
+                Console.WriteLine("What will you choose -- heads(1)/tails(0)?");
+                choice = (Console.ReadLine());
+                if (choice[0].Equals('1') || choice[0].Equals('0'))
+                {
+                    val = false;
+                }
+                else
+                {
+                    Console.WriteLine("Please provide valid input(0/1).");
+                    val = true;
+                }
+            }
+            int choice2 = Convert.ToInt32(choice);      //coming out of the loop when the choice matches with that entered 
+            Random rn = new Random();                   //initialising random function
+            if (rn.Next(0, 2) == choice2)               //getting randomly 2 values and matches with the entered choice
+            {
+                Console.WriteLine("You got your desired side.So, will play first");
+            }
+            else
+            {
+                Console.WriteLine("Computer will play first");
+            }
+        }
+
+
     }
 }
+    
+
