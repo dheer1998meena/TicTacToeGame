@@ -25,8 +25,8 @@ namespace TicTacToeGame
         public char ChooseLetter()
         {
             Console.WriteLine("Choose a letter among X and O");
-            string chooseLetter = Console.ReadLine();
-            return char.ToUpper(chooseLetter[0]);
+            string userLetter = Console.ReadLine();
+            return char.ToUpper(userLetter[0]);
         }
 
         //  To show Board 
@@ -109,18 +109,21 @@ namespace TicTacToeGame
         }
 
         // Computer move
-        public int getComputerMove(char [] board , char computerLetter)
+        public int getComputerMove(char [] board , char computerLetter,char userLetter)
         {
             int winningMove = getWinningMove(board , computerLetter);
             if (winningMove != 0)
                 return winningMove;
+            int userWinningMove = getWinningMove(board, userLetter);
+            if (userWinningMove != 0)
+                return userWinningMove;
             return 0;
         }
         public int getWinningMove(char[] board ,char letter)
         {
             for (int index =1; index<board.Length; index++)
             {
-                char[] copyOfBoard = geCopyOfBoard(board);
+                char[] copyOfBoard = getCopyOfBoard(board);
                 if (isSpaceFree(copyOfBoard, index))
                 {
                     makeMove(copyOfBoard, index, letter);
@@ -130,12 +133,14 @@ namespace TicTacToeGame
             }
             return 0;
         }
-        public char [] geCopyOfBoard(char [] board)
+        public char [] getCopyOfBoard(char [] board)
         {
             char[] boardCopy = new char[10];
-            System.arrayCopy(board, srcPos: 0, boardCopy, destPos: 0, board.Length);
+            System.Array.Copy(board,0, boardCopy, 0, board.Length);
             return boardCopy;
         }
+
+
     }
 }
     

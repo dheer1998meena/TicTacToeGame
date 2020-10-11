@@ -16,14 +16,15 @@ namespace TicTacToeGame
             tic.ShowBoard(board);
             tic.Toss();
             // To choose a letter by a user
-            char chooseLetter = tic.ChooseLetter();
+            char userLetter = tic.ChooseLetter();
+            char computerLetter = (userLetter == 'X') ? 'O' : 'X';
             // To move desired location
             int userMove = tic.getUserMove(board);
-            tic.makeMove(board, userMove, chooseLetter);
+            tic.makeMove(board, userMove, userLetter);
             tic.ShowBoard(board);
             //Computer Move
-            int computerMove = tic.getComputerMove(board, computerLetter);
-            Console.WriteLine("Check if Won: " + tic.isWinner(board, chooseLetter));
+            int computerMove = tic.getComputerMove(board, computerLetter, userLetter);
+            Console.WriteLine("Check if Won: " + tic.isWinner(board, userLetter));
 
         }
     }
