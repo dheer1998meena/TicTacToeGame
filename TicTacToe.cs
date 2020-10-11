@@ -25,5 +25,15 @@ namespace TicTacToeGame
             string chooseLetter = Console.ReadLine();
             return char.ToUpper(chooseLetter[0]);
         }
+
+        //  To show Board 
+        public void ShowBoard(char [] board)
+        {
+            Console.WriteLine("\n " + board[1] + " | " + board[2] + " | " + board[3]);
+            Console.WriteLine("-----------");
+            Console.WriteLine(" " + board[4] + " | " + board[5] + " | " + board[6]);
+            Console.WriteLine("-----------");
+            Console.WriteLine(" " + board[7] + " | " + board[8] + " | " + board[9]);
+        }
     }
 }
