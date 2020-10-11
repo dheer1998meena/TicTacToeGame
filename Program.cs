@@ -19,6 +19,7 @@ namespace TicTacToeGame
             int userMove = tic.getUserMove(board);
             tic.makeMove(board, userMove, chooseLetter);
             tic.ShowBoard(board);
+            Console.WriteLine("Check if Won: " + tic.isWinner(board, chooseLetter));
 
 
         }
