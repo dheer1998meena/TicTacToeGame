@@ -14,6 +14,12 @@ namespace TicTacToeGame
             tic.ShowBoard(board);
             // To choose a letter by a user
             tic.ChooseLetter();
+            // To move desired location
+            int userMove = tic.getUserMove(board);
+            // To show board 
+            tic.ShowBoard(board);
+
+
         }
     }
 }
