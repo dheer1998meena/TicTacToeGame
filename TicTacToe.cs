@@ -52,5 +52,11 @@ namespace TicTacToeGame
         {
             return board[index] == ' ';
         }
+
+        public void makeMove(char[] board, int index, char letter)
+        {
+            bool spaceFree = isSpaceFree(board, index);
+            if (spaceFree) board[index] = letter;
+        }
     }
 }
