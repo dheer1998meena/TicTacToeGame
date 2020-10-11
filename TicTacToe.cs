@@ -6,9 +6,6 @@ namespace TicTacToeGame
 {
     class TicTacToe
     {
-        char player = ' ';
-        char computer = ' ';
-
         // To create a new board
         public char [] CreateBoard()
         {
