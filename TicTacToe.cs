@@ -117,6 +117,9 @@ namespace TicTacToeGame
             int userWinningMove = getWinningMove(board, userLetter);
             if (userWinningMove != 0)
                 return userWinningMove;
+            int[] cornerMoves = { 1, 3, 7, 9 };
+            int computerMove = getRandomMoveFromList(board,cornerMoves);
+            return computerMove;
             return 0;
         }
         public int getWinningMove(char[] board ,char letter)
