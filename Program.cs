@@ -12,6 +12,7 @@ namespace TicTacToeGame
             char [] board = tic.CreateBoard();
             // To show board 
             tic.ShowBoard(board);
+            tic.Toss();
             // To choose a letter by a user
             char chooseLetter = tic.ChooseLetter();
             // To move desired location
